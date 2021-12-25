@@ -5,8 +5,13 @@ import com.example.srpsamples.dummy.User
 
 //Предыстория: Есть функционал, в котором список юзеров и список отзывов на одном экране. Как быть кодеру?
 //Do's
-class ReviewsSubPresenter() {
-    private val reviews = arrayListOf<Review>()
+class ReviewsSubPresenter {
+    //конструктор расписан для наглядности, в котлине всё проще
+    private val reviews: ArrayList<Review>
+
+    constructor(reviews: ArrayList<Review>) {
+        this.reviews = reviews
+    }
 
     fun clearReviews() =
         reviews.clear()
@@ -15,8 +20,13 @@ class ReviewsSubPresenter() {
         reviews.add(review)
 }
 
-class UsersSubPresenter() {
-    private val users = arrayListOf<User>()
+class UsersSubPresenter {
+    //конструктор расписан для наглядности
+    private val users: ArrayList<User>
+
+    constructor(users: ArrayList<User>) {
+        this.users = users
+    }
 
     fun clearUsers() =
         users.clear()
@@ -27,9 +37,14 @@ class UsersSubPresenter() {
 
 //Don't do's
 //Нарушение: существует группа функций, которые работают с другим полем.
-class ReviewsSubPresenterLcom() {
+class ReviewsSubPresenterLcom {
     val reviews = arrayListOf<Review>()
     val users = arrayListOf<User>()
+
+    //конструктор тоже функция!!
+    constructor() {
+
+    }
 
     fun clearReviews() =
         reviews.clear()
@@ -51,13 +66,13 @@ LCOM = 1 - (MF / СУММА_МЕТОДОВ * СУММА_ПОЛЕЙ)
 
 Диапазон значений LCOM это дробь от 0 до 1, например 0.3
 
+Внимание: Конструктор тоже является Методом!!
+
 *MF - Как считать:
 Взять первое поле класса, затем посчитать сколько методов его упоминают. Затем проделать это со всеми другими полями и сложить.
 
 Lcom метрики можно подключить к CI/CD
 много материалов в сети по теме LCOM
-
-Есть ньюанс с конструкторами, если хватит времени обсудим, не вмещается в формат встречи
 
 Давайте подсчитаем Lcom всех классов!
 */
