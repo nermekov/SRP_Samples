@@ -53,6 +53,7 @@ fun branches3(z: Int) {
 }
 
 //Do's /when
+//When в котлин это ключевое слово вместо switch. Только каждая ветвь when конечная, то есть break по умолчанию
 fun branches4(action: String) {
     when (action) {
         "a1" -> {
