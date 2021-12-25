@@ -41,4 +41,44 @@ fun branches2(z: Int) {
     if (System.currentTimeMillis() > 6)
         action2()
 }
+
 //Ещё прослеживается рекомендация стараться не делать больше 1 строки в ветке if/else/when/try/catch
+//Don't do's
+fun branches3(z: Int) {
+    if (z > 6){
+        action1()
+        action4()
+    }
+    else action2()
+}
+
+//Do's /when
+fun branches4(action: String) {
+    when (action) {
+        "a1" -> {
+            action1()
+        }
+        "a2" -> {
+            action2()
+        }
+        "a3" -> {
+            action4()
+        }
+    }
+}
+
+fun branches5(action: String) {
+    when (action) {
+        "a1" -> {
+            action1()
+        }
+        "a2" -> {
+            action2()
+        }
+        //В этой ветви when 2 строки, это нарушение назначение функции просто делать ветвление when, без подробностей
+        "a3" -> {
+            action4()
+            action5()
+        }
+    }
+}

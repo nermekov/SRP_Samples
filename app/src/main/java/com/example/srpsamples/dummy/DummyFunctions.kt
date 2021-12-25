@@ -17,3 +17,11 @@ fun action2() {
 
 fun action1() {
 }
+
+fun action4() {
+
+}
+
+fun action5() {
+
+}
